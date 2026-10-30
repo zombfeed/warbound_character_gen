@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/warbound_character_gen/static/css/main.4872b1ff.css",
-    "main.js": "/warbound_character_gen/static/js/main.7cd40eff.js",
+    "main.js": "/warbound_character_gen/static/js/main.6e85b453.js",
     "static/js/453.50be91ba.chunk.js": "/warbound_character_gen/static/js/453.50be91ba.chunk.js",
     "index.html": "/warbound_character_gen/index.html",
     "main.4872b1ff.css.map": "/warbound_character_gen/static/css/main.4872b1ff.css.map",
-    "main.7cd40eff.js.map": "/warbound_character_gen/static/js/main.7cd40eff.js.map",
+    "main.6e85b453.js.map": "/warbound_character_gen/static/js/main.6e85b453.js.map",
     "453.50be91ba.chunk.js.map": "/warbound_character_gen/static/js/453.50be91ba.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4872b1ff.css",
-    "static/js/main.7cd40eff.js"
+    "static/js/main.6e85b453.js"
   ]
 }

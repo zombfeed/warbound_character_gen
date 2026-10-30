@@ -19,7 +19,7 @@ function Sprite({ sheet, index, label }) {
       role="img"
       aria-label={label}
       style={{
-        backgroundImage: `url("/warboundassets/${sheet}.png")`,
+        backgroundImage: `url("${process.env.PUBLIC_URL}/warboundassets/${sheet}.png")`,
         backgroundSize: "100% auto",
         backgroundPosition: `0 ${count > 1 ? (index / (count - 1)) * 100 : 0}%`,
       }}
