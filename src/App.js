@@ -2,13 +2,29 @@ import { useState } from "react";
 import "./App.css";
 
 const SPRITES = {
-  classicons: { count: 9 },
-  raceicons: { count: 10 },
+  classicons: { count: 9 }, //0:druid, 1:priest, 2:warrior, 3:rogue, 4:paladin, 5:hunter, 6:mage, 7:shaman, 8:warlock
+  raceicons: { count: 10 }, //0:human, 1: dwarf, 2: night elf, 3: gnome, 4: skyelf(A), 5: orc, 6: forsaken, 7: tauren, 8: troll, 9: skyelf(H)
 };
 
-function randomIndex(sheet) {
-  return Math.floor(Math.random() * SPRITES[sheet].count);
+const VALID_COMBOS = {
+  0: [2, 4, 7, 9], // druid
+  1: [0, 1, 2, 3, 6, 8],    //priest
+  2: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], // warrior
+  3: [0, 1, 2, 3, 4, 5, 6, 8, 9], // rogue
+  4: [0, 1, 6], // paladin
+  5: [0, 1, 2, 4, 5, 7, 8, 9],// hunter
+  6: [0, 3, 4, 5, 6, 8], //mage
+  7: [1, 5, 7, 8, 9], //shaman
+  8: [0, 3, 5, 6, 8] //warlock
 }
+
+const VALID_CHARACTERS = Object.entries(VALID_COMBOS).flatMap(
+  ([classIndex, raceIndexes]) =>
+    raceIndexes.map((raceIndex) => ({
+      classIndex: Number(classIndex),
+      raceIndex,
+    }))
+);
 
 function Sprite({ sheet, index, label }) {
   const { count } = SPRITES[sheet];
@@ -28,10 +44,7 @@ function Sprite({ sheet, index, label }) {
 }
 
 function makeCharacter() {
-  return {
-    classIndex: randomIndex("classicons"),
-    raceIndex: randomIndex("raceicons"),
-  };
+  return VALID_CHARACTERS[Math.floor(Math.random() * VALID_CHARACTERS.length)];
 }
 
 export default function App() {
@@ -48,6 +61,7 @@ export default function App() {
     setSpinPhase("fast");
     setStopped({ class: false, race: false });
     setMessage("Spinning…");
+    const nextCharacter = makeCharacter();
 
     window.setTimeout(() => {
       setSpinPhase("medium");
@@ -58,14 +72,18 @@ export default function App() {
     }, 1500);
 
     window.setTimeout(() => {
-      const classIndex = randomIndex("classicons");
-      setCharacter((current) => ({ ...current, classIndex }));
+      setCharacter((current) => ({
+        ...current,
+        classIndex: nextCharacter.classIndex,
+      }));
       setStopped((current) => ({ ...current, class: true }));
     }, 2200);
 
     window.setTimeout(() => {
-      const raceIndex = randomIndex("raceicons");
-      setCharacter((current) => ({ ...current, raceIndex }));
+      setCharacter((current) => ({
+        ...current,
+        raceIndex: nextCharacter.raceIndex,
+      }));
       setStopped((current) => ({ ...current, race: true }));
       setMessage("Your character is ready!");
       setSpinning(false);

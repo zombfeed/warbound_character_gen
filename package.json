@@ -18,7 +18,7 @@
     "build": "react-scripts build && if exist docs rmdir /s /q docs && rename build docs",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build && rsync -a build/ docs/ || xcopy build docs /E /I /Y",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d docs -b main"
   },
   "eslintConfig": {
