@@ -1,4 +1,4 @@
-Website to generate a character (race + class) for self-imposed leveling challenge (tentatively called "Warbound") for World of Warcraft.
+Website to generate a character (race + class) for self-imposed leveling challenge (tentatively called "Warbound") for World of Warcraft: Forever.
 
 This project was created with AI via VS Code claude.
 
