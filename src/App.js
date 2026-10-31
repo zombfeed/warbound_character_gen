@@ -8,14 +8,14 @@ const SPRITES = {
 
 const VALID_COMBOS = {
   0: [2, 4, 7, 9], // druid
-  1: [0, 1, 2, 3, 6, 8],    //priest
+  1: [0, 1, 2, 3, 6, 8],    // priest
   2: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], // warrior
   3: [0, 1, 2, 3, 4, 5, 6, 8, 9], // rogue
   4: [0, 1, 6], // paladin
   5: [0, 1, 2, 4, 5, 7, 8, 9],// hunter
-  6: [0, 3, 4, 5, 6, 8], //mage
-  7: [1, 5, 7, 8, 9], //shaman
-  8: [0, 3, 5, 6, 8] //warlock
+  6: [0, 3, 4, 5, 6, 8], // mage
+  7: [1, 5, 7, 8, 9], // shaman
+  8: [0, 3, 5, 6, 8] // warlock
 }
 
 const VALID_CHARACTERS = Object.entries(VALID_COMBOS).flatMap(
